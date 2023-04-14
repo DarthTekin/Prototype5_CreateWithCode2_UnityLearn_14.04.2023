@@ -12,11 +12,14 @@ public class Target : MonoBehaviour
 
 
     private Rigidbody targetRb;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
         targetRb = GetComponent<Rigidbody>();
+        //gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorgque(), RandomTorgque(), RandomTorgque(), ForceMode.Impulse);
@@ -33,6 +36,7 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         Destroy(gameObject);
+        gameManager.UpdateScore(5);
     }
 
     private void OnTriggerEnter(Collider other) 
