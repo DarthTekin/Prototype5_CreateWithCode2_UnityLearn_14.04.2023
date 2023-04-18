@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private float spawnRate = 1.0f;
+    private float spawnRate = 1.5f;
     private int score;
     public bool isGameActive;
 
@@ -56,10 +56,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void StartGame()
+    public void StartGame(int difficulty)
     {
         isGameActive = true;
         score = 0;
+        spawnRate /= difficulty;
+
         StartCoroutine(SpawnTarget());
         UpdateScore(0);
         titleScreen.gameObject.SetActive(false);
