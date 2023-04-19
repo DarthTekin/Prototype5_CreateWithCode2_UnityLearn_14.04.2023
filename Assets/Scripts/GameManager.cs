@@ -28,6 +28,18 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void StartGame(int difficulty)
+    {
+        isGameActive = true;
+        score = 0;
+        spawnRate /= difficulty;
+
+        StartCoroutine(SpawnTarget());
+        UpdateScore(score);
+        titleScreen.gameObject.SetActive(false);
+    }
+
     IEnumerator SpawnTarget()
     {
         while (isGameActive)
@@ -46,24 +58,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        restartButton.gameObject.SetActive(true);
         gameOverText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
         isGameActive = false;
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void StartGame(int difficulty)
-    {
-        isGameActive = true;
-        score = 0;
-        spawnRate /= difficulty;
-
-        StartCoroutine(SpawnTarget());
-        UpdateScore(0);
-        titleScreen.gameObject.SetActive(false);
-    }
+    }   
 }
