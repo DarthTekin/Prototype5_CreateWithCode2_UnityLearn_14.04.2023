@@ -1941,6 +1941,7 @@ MonoBehaviour:
   - {fileID: 8071335638016410395, guid: 230a679ee75b4b94a948e26c25e6ee3f, type: 3}
   scoreText: {fileID: 1956034678}
   gameOverText: {fileID: 1870598891}
+  livesText: {fileID: 2079391273}
   restartButton: {fileID: 1008640039}
   titleScreen: {fileID: 2015540812}
 --- !u!4 &1527497898
