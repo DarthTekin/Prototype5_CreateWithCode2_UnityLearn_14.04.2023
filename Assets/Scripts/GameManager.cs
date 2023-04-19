@@ -9,11 +9,13 @@ public class GameManager : MonoBehaviour
 {
     private float spawnRate = 1.5f;
     private int score;
+    private int lives;
     public bool isGameActive;
 
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI livesText;
     public Button restartButton;
     public GameObject titleScreen;
 
@@ -54,6 +56,17 @@ public class GameManager : MonoBehaviour
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
+    }
+
+    public void UpdateLives(int livesToChange)
+    {
+        lives -= livesToChange;
+        livesText.text = "Lives: " + lives;
+
+        if (lives <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void GameOver()
