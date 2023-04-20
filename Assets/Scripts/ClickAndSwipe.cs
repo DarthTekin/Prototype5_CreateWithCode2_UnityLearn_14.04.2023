@@ -31,4 +31,10 @@ public class ClickAndSwipe : MonoBehaviour
     {
         
     }
+
+    void UpdateMousePosition()
+    {
+        mousePos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -10.0f));
+        transform.position = mousePos;
+    }
 }
