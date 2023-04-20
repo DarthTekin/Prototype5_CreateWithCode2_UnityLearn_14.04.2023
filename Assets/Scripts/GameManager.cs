@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private int score;
     private int lives;
     public bool isGameActive;
-    private bool paused;
+    public bool paused;
 
     public List<GameObject> targets;
     public TextMeshProUGUI scoreText;
