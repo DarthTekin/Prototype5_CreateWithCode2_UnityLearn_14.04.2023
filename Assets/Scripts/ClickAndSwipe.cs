@@ -16,9 +16,14 @@ public class ClickAndSwipe : MonoBehaviour
     private BoxCollider col;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        cam = Camera.main;
+        trail = GetComponent<TrailRenderer>();
+        col = GetComponent<BoxCollider>();
+        trail.enabled = false;
+        col.enabled = false;
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
