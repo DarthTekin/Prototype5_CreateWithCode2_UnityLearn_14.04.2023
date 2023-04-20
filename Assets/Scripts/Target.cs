@@ -5,6 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     public int pointValue;
+    private int liveValue = 1;
     private float minSpeed = 12;
     private float maxSpeed = 16;
     private float maxTorque = 10;
@@ -46,13 +47,12 @@ public class Target : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        Destroy(gameObject);
-
         if (!gameObject.CompareTag("Bad") && gameManager.isGameActive)
         {
-            int livesToChange = 1;
-            gameManager.UpdateLives(livesToChange);
+            gameManager.UpdateLives(liveValue);
         }
+
+        Destroy(gameObject);
     }
 
     Vector3 RandomForce()
