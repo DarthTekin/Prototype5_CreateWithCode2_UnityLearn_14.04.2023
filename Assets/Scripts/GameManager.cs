@@ -20,11 +20,13 @@ public class GameManager : MonoBehaviour
     public Button restartButton;
     public GameObject titleScreen;
     public GameObject pauseScreen;
+    public AudioClip gameOverSFX;
+    private AudioSource gameAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -81,6 +83,7 @@ public class GameManager : MonoBehaviour
         gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
         isGameActive = false;
+        gameAudio.PlayOneShot(gameOverSFX, 1.0f);
     }
 
     public void RestartGame()
