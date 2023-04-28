@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnTarget());
         UpdateScore(score);
         UpdateLives(score);
-        titleScreen.gameObject.SetActive(false);
+        titleScreen.SetActive(false);
     }
 
     IEnumerator SpawnTarget()
