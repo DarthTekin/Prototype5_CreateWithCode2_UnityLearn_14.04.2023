@@ -35,7 +35,6 @@ public class Target : MonoBehaviour
         
     }
 
-    //private void OnMouseDown(){} Converted to DestroyTarget(){} 
     
     private void OnTriggerEnter(Collider other) 
     {
@@ -47,6 +46,7 @@ public class Target : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //private void OnMouseDown(){} Converted to DestroyTarget(){}
     public void DestroyTarget()
     {
         if (gameManager.isGameActive && !gameManager.paused)
